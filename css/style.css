@@ -261,6 +261,7 @@ textarea {
   --color-line:rgba(225, 225, 225, 1);
   --primary-font:'Merriweather', serif;
   --secondary-font:'Poppins', sans-serif;
+  --max-width: 1900px;
 }
 
 *{
@@ -273,26 +274,39 @@ textarea {
     font-family: var(--primary-font);
     color: var(--color-white);
     font-size: 80px;
-  }  
-  
+  }    
 }
-body::after {
+
+.main__container{
+  margin: auto 0px;
+  padding-left: 160px;
+  padding-right: 160px;
+  position: relative;
+  overflow:hidden;/*ocultar lo que se sale */
+}
+.main__container::before {
   content: ''; 
   display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 600px; /* Tamaño menor */
-  height: 600px;
-  border: 1px solid white; /* Círculo interior */
+  top: 98%;
+  left: 90%;
+  width: 65rem; /* Tamaño círculo menor */
+  height: 65rem;
+  border: 1px solid var(--color-line); /* Círculo interior */
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);  
 }
-.main__container{
-  max-width: var(--max-width-page);
-  margin: auto 160px;
-  padding-left: 16px;
-  padding-right: 16px;
+.main__container::after {
+  content: ''; 
+  display: block;
+  position: absolute;
+  top: 78%;
+  left: 80%;
+  width: 75rem; /* Tamaño círculo mayor */
+  height: 75rem;
+  border: 1px solid var(--color-gray); /* Círculo exterior */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);  
 }
 
 header.header{
@@ -302,11 +316,10 @@ header.header{
   padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center; 
-}
+  }
 
 nav.header__nav{
-  margin-left: 740px;
+  margin-right:130px;
 }
 nav.header__nav ul{
   display: flex;
@@ -335,7 +348,7 @@ nav.header__nav ul li a::after {
   position: absolute;
   bottom: -30%; /* Debajo del texto a unos 8px o un -30% bottom */
   left: 30%; /* Empezamos desde la izda. del texto del link */
-  width: 0; /* Inicialmente oculta la línea, hasta que haga hover*/
+  width: 0; /* Inicialmente oculta la línea, hasta que se haga hover*/
   height: 3px; /* Grosor de la línea */
   background-color: var(--color-pink); /*Color de la línea */
   transition: width 0.3s ease, left 0.3s ease; /* Animación de la línea*/
@@ -376,7 +389,7 @@ nav.header__nav ul li a:hover::after {
   color: var(--color-white);
   padding: 16px 60px;
   text-decoration: none;    
-  border-radius: 15px 15px  15px  5px;
+  border-radius: 15px 15px  15px  0px;
   font-family: var(--secondary-font);
   font-weight: 300;
   font-size: 18px;   
@@ -405,83 +418,62 @@ nav.header__nav ul li a:hover::after {
   max-width: 100%;
   position: relative;
 }
-.hero__img-woman{  
+.hero__img-serious-man{  
   position: absolute;
-  top: -550px;
-  right: -320%;  
-  z-index: -1;
+  top: -650px;
+  right: -160%;  
+  border-radius: 90px 90px 90px 90px / 90px 90px 90px 90px; /*Forma asimétrica y orientada según el ajuste de cada borde. Primero horizontal / vertical */
+ z-index: 1;  
 }
-.hero__img-lotus{
+.hero__img-asian-woman{  
   position: absolute;
-  top: -500px;
-  right: -280%; 
-  z-index: -2;
+  top: -650px;
+  right: -230%;  
+  border-radius: 90px 90px 90px 90px / 90px 90px 90px 90px; /*Forma asimétrica y orientada según el ajuste de cada borde. Primero horizontal / vertical */
+ z-index: 1;  
 }
-.hero__testimonial1{
-  width: 405px;
-  display: inline-block;
+.hero__img-thinking-woman{  
   position: absolute;
-  top: -90px;
-  left: 1270px; 
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 25px;
-  border-radius: 15px;
-  border-bottom: 65px;
- 
+  top: -100px;
+  right: -160%;  
+  border-radius: 90px 90px 90px 90px / 90px 90px 90px 90px; /*Forma asimétrica y orientada según el ajuste de cada borde. Primero horizontal / vertical */
+ z-index: 1;  
 }
-.hero__testimonial2{
-  width: 405px;
-  display: inline-block;
+.hero__img-happy-man{  
   position: absolute;
-  top:190px;
-  left: 1120px; 
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 25px;
-  border-radius: 15px;  
+  top: -360px;
+  right: -230%;  
+  border-radius: 90px 90px 90px 90px / 90px 90px 90px 90px; /*Forma asimétrica y orientada según el ajuste de cada borde. Primero horizontal / vertical */
+ z-index: 1;  
 }
-.hero__testimonial-description{
-  width: 100%;
-  font-size: 18px;
-  font-weight: 300;
-  padding-bottom: 10px;
-}
-.hero__testomonial-author{
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--color-blue);
+.hero__img-african-woman{  
+  position: absolute;
+  top: -510px;
+  right: -300%;  
+  border-radius: 90px 90px 90px 90px / 90px 90px 90px 90px; /*Forma asimétrica y orientada según el ajuste de cada borde. Primero horizontal / vertical */
+ z-index: 1;  
 }
 
-.spa-categories{
-  margin-top: 90px;
-  padding: 32px;
-  width: 643px;
+.categories{
+  width: 616px;
+  margin-top: 144px;
+  padding-bottom: 50px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  gap: 72px;
-  background-color: white;
-  
+  justify-content:left;
+  gap: 48px;  
 }
-.spa-categories__item img{
-  width: 72px; 
-  padding-bottom: 20px; 
-  margin-bottom: 24px;  
+.categories article{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+ }
+.categories__item img{
+   padding-right: 16px;
 }
-.spa-categories__item h3{
-  color:var(--color-blue);
+.categories__item h3{
+  font-family: var(--secondary-font);
+  color:var(--color-white);
   font-weight: 500;
-  font-size: 36px;
-  line-height: 36px;
-  letter-spacing: 0%;
-  margin-bottom: 16px;
+  font-size: 20px;
+  text-align: start; 
 }
-.spa-categories__item p{
-  color:var(--color-gray-dark);
-  font-weight: 300;
-  font-size: 18px;
-}
-
-
-
-
